@@ -1,0 +1,33 @@
+[12:37:35] === Kitchen CCTV Monitor — starting ===
+[12:37:35] videos=./videos  questions=test_questions.json  out=test_answers.json  fps=1.0
+[12:37:35] 
+--- Video: sample_kitchen (10 questions) ---
+[12:37:35]   [frames] opening videos\sample_kitchen.mp4
+[12:37:36]   [frames] 113 frames, duration 113.0s
+[12:37:36]   [gemini] 113 imgs, 10 Qs, est $0.0043
+[12:37:36]   [gemini] trying gemini-2.0-flash (attempt 1)
+[12:38:48]   [gemini] rate limited on gemini-2.0-flash, waiting 15s...
+[12:39:03]   [gemini] trying gemini-2.0-flash (attempt 2)
+[12:40:21]   [gemini] rate limited on gemini-2.0-flash, waiting 30s...
+[12:40:51]   [gemini] trying gemini-2.0-flash (attempt 3)
+[12:41:58]   [gemini] rate limited on gemini-2.0-flash, waiting 60s...
+[12:42:58]   [gemini] trying gemini-2.0-flash (attempt 4)
+[12:44:03]   [gemini] rate limited on gemini-2.0-flash, waiting 120s...
+[12:46:03]   [gemini] trying gemini-2.5-flash (attempt 1)
+[12:48:01]   q001: yes (conf 1.0)
+[12:48:01]   q002: 1 (conf 1.0)
+[12:48:01]   q003: no (conf 1.0)
+[12:48:01]   q004: 0.0 (conf 1.0)
+[12:48:01]   q005: prep counter (conf 0.8)
+[12:48:01]   q006: no (conf 1.0)
+[12:48:01]   q007: 75.0 (conf 0.95)
+[12:48:01]   q008: {'sequence': ['sink/wash area', 'prep counter', 'central aisle', 'sink/wash area', 'prep counter', 'right side', 'prep counter', 'right side', 'prep counter', 'right side', 'prep counter']} (conf 0.9)
+[12:48:01]   q009: yes (conf 1.0)
+[12:48:01]   q010: person walked across (conf 1.0)
+[12:48:01] 
+=== Done ===
+[12:48:01] Answers: 10  written to test_answers.json
+[12:48:01] Elapsed: 625.5s  |  API calls: 1  |  frames: 113
+[12:48:01] Est cost: $0.0043  |  Normalised $/60min: $0.1357
+[12:48:01] Budget check → time 626s / 1200s  |  cost $0.1357 / $3.00
+[12:48:01] Run log: test_run_log.json

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "q1",
+    "answer": "not visible",
+    "confidence": 0.0
+  },
+  {
+    "id": "q2",
+    "answer": "packing station",
+    "confidence": 0.82
+  },
+  {
+    "id": "q3",
+    "answer": 4,
+    "confidence": 0.75
+  },
+  {
+    "id": "q4",
+    "answer": 37.5,
+    "confidence": 0.6
+  },
+  {
+    "id": "q5",
+    "answer": 12.0,
+    "confidence": 0.55
+  },
+  {
+    "id": "q6",
+    "answer": {
+      "sequence": ["prep counter", "packing station", "handoff shelf"]
+    },
+    "confidence": 0.5
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "runtime_seconds": 625.5,
+  "frames_processed": 113,
+  "model_calls": 1,
+  "estimated_model_api_cost_usd": 0.0043,
+  "normalized_model_api_cost_per_60min_usd": 0.1357,
+  "source_video_minutes": 1.9,
+  "budget_status": "PASS"
+}

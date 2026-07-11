@@ -1,0 +1,39 @@
+[
+  {
+    "id": "q1",
+    "video": "clip_01.mp4",
+    "type": "yes_no",
+    "prompt": "Was a hairnet visible on the person at the packing station?"
+  },
+  {
+    "id": "q2",
+    "video": "clip_01.mp4",
+    "type": "multiple_choice",
+    "prompt": "Which station was active when the timer went off?",
+    "options": ["prep counter", "fryer line", "packing station", "not visible"]
+  },
+  {
+    "id": "q3",
+    "video": "clip_01.mp4",
+    "type": "count",
+    "prompt": "How many containers were sealed at the packing station in this clip?"
+  },
+  {
+    "id": "q4",
+    "video": "clip_01.mp4",
+    "type": "timestamp",
+    "prompt": "At what time (seconds) was the first container sealed?"
+  },
+  {
+    "id": "q5",
+    "video": "clip_01.mp4",
+    "type": "duration",
+    "prompt": "How long was the tray left unattended on the handoff shelf?"
+  },
+  {
+    "id": "q6",
+    "video": "clip_01.mp4",
+    "type": "structured",
+    "prompt": "Describe the sequence of stations the visible worker moved through, in order."
+  }
+]

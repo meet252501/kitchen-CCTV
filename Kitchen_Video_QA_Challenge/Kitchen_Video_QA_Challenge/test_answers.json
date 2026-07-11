@@ -1,0 +1,66 @@
+[
+  {
+    "id": "q001",
+    "answer": "yes",
+    "confidence": 1.0
+  },
+  {
+    "id": "q002",
+    "answer": 1,
+    "confidence": 1.0
+  },
+  {
+    "id": "q003",
+    "answer": "no",
+    "confidence": 1.0
+  },
+  {
+    "id": "q004",
+    "answer": 0.0,
+    "confidence": 1.0
+  },
+  {
+    "id": "q005",
+    "answer": "prep counter",
+    "confidence": 0.8
+  },
+  {
+    "id": "q006",
+    "answer": "no",
+    "confidence": 1.0
+  },
+  {
+    "id": "q007",
+    "answer": 75.0,
+    "confidence": 0.95
+  },
+  {
+    "id": "q008",
+    "answer": {
+      "sequence": [
+        "sink/wash area",
+        "prep counter",
+        "central aisle",
+        "sink/wash area",
+        "prep counter",
+        "right side",
+        "prep counter",
+        "right side",
+        "prep counter",
+        "right side",
+        "prep counter"
+      ]
+    },
+    "confidence": 0.9
+  },
+  {
+    "id": "q009",
+    "answer": "yes",
+    "confidence": 1.0
+  },
+  {
+    "id": "q010",
+    "answer": "person walked across",
+    "confidence": 1.0
+  }
+]

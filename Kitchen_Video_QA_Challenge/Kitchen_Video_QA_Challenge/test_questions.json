@@ -1,0 +1,64 @@
+[
+  {
+    "id": "q001",
+    "video_id": "sample_kitchen",
+    "type": "yes_no",
+    "question": "Is any person visible in the kitchen area during the clip?"
+  },
+  {
+    "id": "q002",
+    "video_id": "sample_kitchen",
+    "type": "count",
+    "question": "How many people are visible in the kitchen at the start of the clip?"
+  },
+  {
+    "id": "q003",
+    "video_id": "sample_kitchen",
+    "type": "yes_no",
+    "question": "Is the person at the stove wearing a cap or hairnet?"
+  },
+  {
+    "id": "q004",
+    "video_id": "sample_kitchen",
+    "type": "timestamp",
+    "question": "At what timestamp does the first person enter the frame or become visible?"
+  },
+  {
+    "id": "q005",
+    "video_id": "sample_kitchen",
+    "type": "multiple_choice",
+    "question": "Which kitchen area is most active during the clip?",
+    "options": ["prep counter", "stove/burner area", "packing station", "sink/wash area", "not_visible"]
+  },
+  {
+    "id": "q006",
+    "video_id": "sample_kitchen",
+    "type": "yes_no",
+    "question": "Is an order number or text label visible on any container or screen?"
+  },
+  {
+    "id": "q007",
+    "video_id": "sample_kitchen",
+    "type": "duration",
+    "question": "How long is the stove or burner area left unattended (no person within arm's reach)?"
+  },
+  {
+    "id": "q008",
+    "video_id": "sample_kitchen",
+    "type": "structured",
+    "question": "Describe the sequence of visible kitchen stations or areas where activity occurs, in chronological order."
+  },
+  {
+    "id": "q009",
+    "video_id": "sample_kitchen",
+    "type": "yes_no",
+    "question": "Does any worker pick up or move a container or tray during the clip?"
+  },
+  {
+    "id": "q010",
+    "video_id": "sample_kitchen",
+    "type": "multiple_choice",
+    "question": "Which happened last: a pot was stirred, a container was moved, a person walked across the frame, or none of these were visible?",
+    "options": ["pot stirred", "container moved", "person walked across", "not_visible"]
+  }
+]
