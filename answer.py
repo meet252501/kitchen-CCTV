@@ -408,7 +408,7 @@ def main():
     log(f"Answers: {len(all_answers)}  written to {args.out}")
     log(f"Elapsed: {elapsed:.1f}s  |  API calls: {_call_count}  |  frames: {_frames_processed}")
     log(f"Est cost: ${_est_cost:.4f}  |  Normalised $/60min: ${norm_cost:.4f}")
-    log(f"Budget check → time {elapsed:.0f}s / 1200s  |  cost ${norm_cost:.4f} / $3.00")
+    log(f"Budget check -> time {elapsed:.0f}s / 1200s  |  cost ${norm_cost:.4f} / $3.00")
 
     # Write structured run log
     run_log = {
