@@ -136,14 +136,19 @@ compute durations) and an "answers" array.
 3. The "answers" array must contain one object per question. Each object MUST have:
    - "id"         : string (must exactly match the question id)
    - "answer"     : depends on question type (see below)
+   - "evidence"   : array of ONE or TWO floats representing the exact frame timestamps. Use [exact_timestamp] for a point-in-time event, or [start_timestamp, end_timestamp] for a duration/span. Use an empty array [] ONLY IF the answer is "not visible".
    - "confidence" : float 0.0–1.0
 
-## TEMPORAL REASONING RULES
-- For `timestamp` questions: Identify the exact two frames where the event \
-starts or occurs. If it happens between two frames, interpolate the time. \
-Write this out in your `reasoning` field first.
-- For `duration` questions: Explicitly identify the start frame timestamp and \
-the end frame timestamp in your `reasoning` field, then subtract them.
+## TEMPORAL REASONING & SINGLE-FRAME GROUNDING
+- For ALL visual questions (yes_no, multiple_choice, count, structured): You MUST first \
+isolate the exact single timestamp [T=xx.xxs] where the event or subject is most clearly visible. \
+Write this single-frame grounding explicitly in your `reasoning` field (e.g., "The person is at \
+the prep counter at [T=15.00s]. Looking only at this specific frame, they are wearing a red \
+shirt, and there are 2 people visible."). Base your final answer ONLY on that specific frame.
+- For `timestamp` questions: Identify the exact frame timestamp where the event occurs in your \
+`reasoning` field.
+- For `duration` questions: Explicitly identify the start frame timestamp and the end frame \
+timestamp in your `reasoning` field, then subtract them.
 - Be precise to within 2 seconds for full credit.
 
 ## ANSWER TYPES
@@ -156,6 +161,7 @@ the end frame timestamp in your `reasoning` field, then subtract them.
 
 ## IMPORTANT
 - Note: I have physically burned the exact timestamp (e.g., `[T=12.50s]`) in bright green text onto the top-left corner of every image. Use this text directly for your absolute timestamp values!
+- If the video does not clearly show the answer, you MUST return "not visible" as the answer and [] as the evidence.
 - Use "not visible" (with a space), never "not_visible" with an underscore.
 - Timestamps are in seconds from the start of the video.
 - Return EXACTLY one answer per question inside the "answers" array. Match ids exactly.
@@ -201,7 +207,7 @@ def answer_questions_for_video(
     global _call_count, _est_cost
 
     fallback = [
-        {"id": q["id"], "answer": "not visible", "confidence": 0.0}
+        {"id": q["id"], "answer": "not visible", "evidence": [], "confidence": 0.0}
         for q in questions
     ]
 
@@ -296,12 +302,26 @@ def answer_questions_for_video(
             continue
         # Normalise "not visible" variants
         ans = r.get("answer")
-        if isinstance(ans, str):
-            if ans.lower().strip() in ("not visible", "not_visible", "n/a", "none", "null"):
+        if ans in (None, "", [], {}):
+            r["answer"] = "not visible"
+        elif isinstance(ans, str):
+            if ans.lower().strip() in ("not visible", "not_visible", "n/a", "none", "null", "unknown"):
                 r["answer"] = "not visible"
+        
         # Ensure confidence exists
         if "confidence" not in r:
             r["confidence"] = 0.5
+            
+        # Ensure evidence exists and is properly formatted
+        if "evidence" not in r or r["evidence"] is None:
+            r["evidence"] = []
+        elif not isinstance(r["evidence"], list):
+            r["evidence"] = [r["evidence"]]
+            
+        # If the answer is "not visible", force evidence to be empty
+        if r["answer"] == "not visible":
+            r["evidence"] = []
+            
         answered_ids.add(r.get("id"))
 
     # Fill in any missing questions
@@ -311,6 +331,7 @@ def answer_questions_for_video(
             results.append({
                 "id": q["id"],
                 "answer": "not visible",
+                "evidence": [],
                 "confidence": 0.0
             })
 
